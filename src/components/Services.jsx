@@ -28,22 +28,22 @@ const services = [
   {
     num: '01',
     title: 'Launch site',
-    desc: 'A fast, professional 5-page website to establish your online presence and start showing up in local searches.',
-    price: 'From $600',
+    desc: 'A fast, professional 3-page website to establish your online presence and start showing up in local searches.',
+    price: 'From $249',
     time:  'Delivered in 2 weeks',
   },
   {
     num: '02',
     title: 'Growth site',
     desc: 'Full business site with CMS, analytics, Google Business integration, and 90+ Lighthouse performance score.',
-    price: 'From $1,200',
+    price: 'From $499',
     time:  'Delivered in 3 weeks',
   },
   {
     num: '03',
     title: 'Authority site',
     desc: 'Premium site with blog, lead capture, local SEO strategy, custom animations, and 3 months priority support.',
-    price: 'From $2,000',
+    price: 'From $999',
     time:  'Delivered in 4 weeks',
   },
   {

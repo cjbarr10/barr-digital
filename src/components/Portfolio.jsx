@@ -1,45 +1,184 @@
 import { motion } from 'framer-motion'
 import { useInView } from './useInView'
 
+import churchImg from "../assets/Images/churchImg.png";
+import barberImg from "../assets/Images/barberImg.png"
+import pressureImg from "../assets/Images/pressurewashingImg.png";
+
 const projects = [
   {
-    bg:     'bg-navy',
-    accent: '#4A9FD4',
-    cta:    '#C8A96E',
-    tag:    'Home services · Launch site',
-    name:   'Apex Plumbing & HVAC',
-    result: 'Ranked #3 on Google Maps within 6 weeks of launch.',
+    bg:       'bg-[#1a2e1f]',
+    img:      churchImg,
+    imgAlt:   'Highland Baptist Church website preview',
+    accent:   '#D4A017',
+    badge:    { color: '#4ade80', label: 'Live site' },
+    industry: 'Faith community · Pulaski, TN',
+    tag:      'Church Website — Free Redesign',
+    name:     'Highland Baptist Church',
+    desc:     'Full redesign of a site last updated in 2004. Mobile-first layout with service times, YouTube sermon integration, and ministry pages.',
+    pills:    ['React + Vite', 'Tailwind CSS', 'Framer Motion', 'SEO'],
+    result:   'Delivered as a free community project — now a live case study.',
+    href:     'https://highland-webpage.vercel.app/',
+    btnLabel: 'View project',
+    external: true,
   },
   {
-    bg:     'bg-[#1a2f1a]',
-    accent: '#5DCAA5',
-    cta:    '#1D9E75',
-    tag:    'Restaurant · Growth site',
-    name:   'The Ironwood Kitchen',
-    result: '40% more reservation form submissions in month one.',
+    bg:       'bg-[#0A0A0A]',
+    img:      barberImg,
+    imgAlt:   'Cut-N-Up Barbershop website preview',
+    accent:   '#C9A84C',
+    badge:    { color: '#fbbf24', label: 'Live site' },
+    industry: 'Barbershop · Arkadelphia, AR',
+    tag:      'Premium Brand Website — Spec Project',
+    name:     'Cut-N-Up Barbershop',
+    desc:     'Cinematic brand experience with matte black + gold palette, Bebas Neue typography, Framer Motion animations, and Fresha booking integration.',
+    pills:    ['React + Vite', 'Tailwind CSS', 'Framer Motion', 'Dark luxury UI'],
+    result:   'Designed to attract premium barbershop clients who want a brand — not a template.',
+    href:     'https://barber-webpage-sigma.vercel.app',
+    btnLabel: 'View project',
+    external: true,
   },
   {
-    bg:     'bg-[#2a1a10]',
-    accent: '#C8A96E',
-    cta:    '#C8A96E',
-    tag:    'Law practice · Authority site',
-    name:   'Mercer Family Law',
-    result: 'From invisible to page 1 for 3 local search terms.',
+    bg:       'bg-[#0B1628]',
+    img:      pressureImg,
+    imgAlt:   'ProWash Pressure Washing website preview',
+    accent:   '#0EA5E9',
+    badge:    { color: '#38bdf8', label: 'Live site' },
+    industry: 'Home services · Local market',
+    tag:      'Lead-Gen Website — Spec Project',
+    name:     'ProWash Pressure Washing',
+    desc:     'Conversion-focused site with a drag-to-compare before/after slider, glassmorphism quote form, mobile sticky CTA, and 8 animated sections.',
+    pills:    ['React + Vite', 'Tailwind CSS', 'Framer Motion', 'Before/After slider'],
+    result:   'Built to generate quote requests — mobile sticky CTA and quote form with success state.',
+    href:     'https://pressurewash-website-koiy.vercel.app',
+    btnLabel: 'View project',
+    external: true,
   },
 ]
 
-// Small SVG mock-up thumbnail rendered inside each card
-function MockThumb({ accent, cta }) {
+// ── Arrow icon ──────────────────────────────────────────────────────────────
+function ArrowIcon() {
   return (
-    <div className="w-52 bg-white/7 rounded-lg p-3 border border-white/10">
-      <div className="h-1.5 rounded mb-1.5" style={{ background: accent, width: '60%' }} />
-      <div className="h-1.5 rounded mb-1.5 bg-white/20 w-4/5" />
-      <div className="h-1.5 rounded mb-3 bg-white/20 w-1/2" />
-      <div className="h-5 rounded-full" style={{ background: cta, width: '35%' }} />
-    </div>
+    <svg
+      width="13" height="13" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" strokeWidth="2.5"
+      className="transition-transform duration-200 group-hover/btn:translate-x-1"
+    >
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
   )
 }
 
+// ── Single card ─────────────────────────────────────────────────────────────
+function ProjectCard({ project, index, inView }) {
+  const { bg, img, imgAlt, accent, badge, industry, tag, name, desc, pills, result, href, btnLabel, external } = project
+
+  return (
+    <motion.a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noreferrer' : undefined}
+      aria-label={`View ${name} project`}
+      initial={{ opacity: 0, y: 32 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.55, delay: 0.1 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+      className="group flex flex-col rounded-2xl overflow-hidden
+                 border border-[#e8e3da] bg-white no-underline
+                 transition-all duration-300
+                 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]
+                 hover:border-sky/40"
+    >
+      {/* ── Thumbnail ── */}
+      <div className={`relative h-52 flex items-center justify-center overflow-hidden ${bg}`}>
+
+        {/* Real photo */}
+        <img
+          src={img}
+          alt={imgAlt}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover object-top
+                     transition-transform duration-500 group-hover:scale-105"
+        />
+
+        {/* Overlay — lightens slightly on hover */}
+        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/25
+                        transition-colors duration-300" />
+
+        {/* Live / demo badge */}
+        <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5
+                        bg-black/55 backdrop-blur-sm border border-white/20
+                        rounded-full px-2.5 py-1">
+          <span
+            className="w-1.5 h-1.5 rounded-full animate-pulse"
+            style={{ backgroundColor: badge.color }}
+          />
+          <span className="text-white/85 text-[10px] font-medium tracking-wide uppercase">
+            {badge.label}
+          </span>
+        </div>
+
+        
+      </div>
+
+      {/* ── Card body ── */}
+      <div className="flex flex-col flex-1 p-5">
+
+        {/* Industry */}
+        <p className="text-[10px] font-medium tracking-[0.1em] uppercase text-mid mb-0.5">
+          {industry}
+        </p>
+
+        {/* Category tag */}
+        <p className="text-sky text-[10px] font-medium tracking-wide uppercase mb-2">
+          {tag}
+        </p>
+
+        {/* Project name */}
+        <h3 className="font-serif text-navy text-lg leading-snug mb-2">
+          {name}
+        </h3>
+
+        {/* Description */}
+        <p className="text-[#5a6b78] text-sm leading-relaxed mb-3">
+          {desc}
+        </p>
+
+        {/* Tech pills */}
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {pills.map(pill => (
+            <span
+              key={pill}
+              className="text-[10px] font-medium tracking-wide uppercase
+                         bg-[#f0f4f8] text-steel border border-[#e0e8f0]
+                         px-2 py-0.5 rounded-full"
+            >
+              {pill}
+            </span>
+          ))}
+        </div>
+
+        {/* Result badge */}
+        <div className="flex items-start gap-1.5 bg-[#edfaf4] border border-[#c3ebda]
+                        rounded-lg px-3 py-2 text-[#3d8c6e] text-xs leading-snug mb-4">
+          <span className="text-[#1d9e75] mt-px flex-shrink-0">✓</span>
+          {result}
+        </div>
+
+        {/* Spacer pushes button to bottom */}
+        <div className="flex-1" />
+
+        {/* View button */}
+        <div className="group/btn flex items-center gap-1.5 text-sky text-sm font-medium
+                        transition-all duration-200 group-hover/btn:gap-2.5 group-hover:text-steel">
+          {btnLabel}
+          <ArrowIcon />
+        </div>
+      </div>
+    </motion.a>
+  )
+}
+
+// ── Section ─────────────────────────────────────────────────────────────────
 export default function Portfolio() {
   const [ref, inView] = useInView()
 
@@ -47,6 +186,7 @@ export default function Portfolio() {
     <section id="portfolio" className="bg-white py-20 px-[5%]">
       <div className="max-w-6xl mx-auto" ref={ref}>
 
+        {/* Header */}
         <motion.p
           className="eyebrow mb-2"
           initial={{ opacity: 0, y: 16 }}
@@ -63,7 +203,8 @@ export default function Portfolio() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.08 }}
         >
-          Sites that perform, not just look good.
+          Three real projects.
+          <br />Built from scratch.
         </motion.h2>
 
         <motion.p
@@ -72,35 +213,33 @@ export default function Portfolio() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.14 }}
         >
-          Every project is built from scratch — no templates, no shortcuts.
+          Every site designed and developed by Barr Digital — no templates,
+          no page builders, just clean React code built to perform.
         </motion.p>
 
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {projects.map(({ bg, accent, cta, tag, name, result }, i) => (
-            <motion.article
-              key={name}
-              initial={{ opacity: 0, y: 28 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              className="rounded-xl overflow-hidden border border-[#e8e3da]
-                         hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
-            >
-              {/* Thumbnail */}
-              <div className={`${bg} h-48 flex items-center justify-center`}>
-                <MockThumb accent={accent} cta={cta} />
-              </div>
-
-              {/* Info */}
-              <div className="p-5 bg-white">
-                <p className="text-sky text-[10px] font-medium tracking-wide uppercase mb-1.5">
-                  {tag}
-                </p>
-                <h3 className="font-medium text-navy mb-1.5">{name}</h3>
-                <p className="text-[#5a6b78] text-sm leading-relaxed">{result}</p>
-              </div>
-            </motion.article>
+          {projects.map((project, i) => (
+            <ProjectCard
+              key={project.name}
+              project={project}
+              index={i}
+              inView={inView}
+            />
           ))}
         </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          className="flex justify-center mt-12"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.55, duration: 0.5 }}
+        >
+          <a href="#contact" className="btn-primary">
+            Start your project →
+          </a>
+        </motion.div>
       </div>
     </section>
   )
