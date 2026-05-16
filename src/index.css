@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global base ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-warm text-navy font-sans;
+  }
+
+  /* Serif headings default */
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+/* ── Reusable component classes ── */
+@layer components {
+  /* Section eyebrow label */
+  .eyebrow {
+    @apply text-2xs font-medium tracking-widest uppercase text-steel;
+  }
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply inline-block bg-sky text-navy font-medium text-sm px-7 py-3 rounded-full
+           transition-all duration-200 hover:bg-[#5fb3e8] hover:-translate-y-0.5
+           active:translate-y-0;
+  }
+
+  /* Ghost/outline button on dark backgrounds */
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 text-mid text-sm
+           transition-colors duration-200 hover:text-warm no-underline;
+  }
+
+  /* Section container */
+  .section-wrap {
+    @apply max-w-6xl mx-auto px-[5%];
+  }
+}
+
+/* ── Utility: hero gradient orb ── */
+.hero-orb {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,159,212,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
