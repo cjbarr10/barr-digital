@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { useInView } from './useInView'
 
-import churchImg from "../assets/Images/churchImg.png";
-import barberImg from "../assets/Images/barberImg.png"
-import pressureImg from "../assets/Images/pressurewashingImg.png";
+import churchImg   from '../assets/Images/churchImg.png'
+import barberImg   from '../assets/Images/barberImg.png'
+import pressureImg from '../assets/Images/pressurewashingImg.png'
 
 const projects = [
   {
@@ -56,20 +56,17 @@ const projects = [
   },
 ]
 
-// ── Arrow icon ──────────────────────────────────────────────────────────────
 function ArrowIcon() {
   return (
     <svg
       width="13" height="13" viewBox="0 0 24 24"
       fill="none" stroke="currentColor" strokeWidth="2.5"
-      className="transition-transform duration-200 group-hover/btn:translate-x-1"
     >
       <path d="M5 12h14M12 5l7 7-7 7" />
     </svg>
   )
 }
 
-// ── Single card ─────────────────────────────────────────────────────────────
 function ProjectCard({ project, index, inView }) {
   const { bg, img, imgAlt, accent, badge, industry, tag, name, desc, pills, result, href, btnLabel, external } = project
 
@@ -82,29 +79,19 @@ function ProjectCard({ project, index, inView }) {
       initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: 0.1 + index * 0.12, ease: [0.16, 1, 0.3, 1] }}
-      className="group flex flex-col rounded-2xl overflow-hidden
-                 border border-[#e8e3da] bg-white no-underline
-                 transition-all duration-300
-                 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)]
-                 hover:border-sky/40"
+      className={`portfolio-card-link group ${bg}`}
     >
-      {/* ── Thumbnail ── */}
-      <div className={`relative h-52 flex items-center justify-center overflow-hidden ${bg}`}>
-
-        {/* Real photo */}
+      {/* Thumbnail */}
+      <div className="relative h-52 overflow-hidden">
         <img
           src={img}
           alt={imgAlt}
           loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover object-top
-                     transition-transform duration-500 group-hover:scale-105"
+          className="portfolio-thumb-img"
         />
+        <div className="portfolio-thumb-overlay" />
 
-        {/* Overlay — lightens slightly on hover */}
-        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/25
-                        transition-colors duration-300" />
-
-        {/* Live / demo badge */}
+        {/* Live badge */}
         <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5
                         bg-black/55 backdrop-blur-sm border border-white/20
                         rounded-full px-2.5 py-1">
@@ -116,29 +103,19 @@ function ProjectCard({ project, index, inView }) {
             {badge.label}
           </span>
         </div>
-
-        
       </div>
 
-      {/* ── Card body ── */}
-      <div className="flex flex-col flex-1 p-5">
-
-        {/* Industry */}
+      {/* Card body */}
+      <div className="flex flex-col flex-1 p-5 bg-white">
         <p className="text-[10px] font-medium tracking-[0.1em] uppercase text-mid mb-0.5">
           {industry}
         </p>
-
-        {/* Category tag */}
         <p className="text-sky text-[10px] font-medium tracking-wide uppercase mb-2">
           {tag}
         </p>
-
-        {/* Project name */}
         <h3 className="font-serif text-navy text-lg leading-snug mb-2">
           {name}
         </h3>
-
-        {/* Description */}
         <p className="text-[#5a6b78] text-sm leading-relaxed mb-3">
           {desc}
         </p>
@@ -157,19 +134,16 @@ function ProjectCard({ project, index, inView }) {
           ))}
         </div>
 
-        {/* Result badge */}
+        {/* Result */}
         <div className="flex items-start gap-1.5 bg-[#edfaf4] border border-[#c3ebda]
                         rounded-lg px-3 py-2 text-[#3d8c6e] text-xs leading-snug mb-4">
           <span className="text-[#1d9e75] mt-px flex-shrink-0">✓</span>
           {result}
         </div>
 
-        {/* Spacer pushes button to bottom */}
         <div className="flex-1" />
 
-        {/* View button */}
-        <div className="group/btn flex items-center gap-1.5 text-sky text-sm font-medium
-                        transition-all duration-200 group-hover/btn:gap-2.5 group-hover:text-steel">
+        <div className="portfolio-view-btn">
           {btnLabel}
           <ArrowIcon />
         </div>
@@ -178,7 +152,6 @@ function ProjectCard({ project, index, inView }) {
   )
 }
 
-// ── Section ─────────────────────────────────────────────────────────────────
 export default function Portfolio() {
   const [ref, inView] = useInView()
 
@@ -186,7 +159,6 @@ export default function Portfolio() {
     <section id="portfolio" className="bg-white py-20 px-[5%]">
       <div className="max-w-6xl mx-auto" ref={ref}>
 
-        {/* Header */}
         <motion.p
           className="eyebrow mb-2"
           initial={{ opacity: 0, y: 16 }}
@@ -217,19 +189,12 @@ export default function Portfolio() {
           no page builders, just clean React code built to perform.
         </motion.p>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, i) => (
-            <ProjectCard
-              key={project.name}
-              project={project}
-              index={i}
-              inView={inView}
-            />
+            <ProjectCard key={project.name} project={project} index={i} inView={inView} />
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           className="flex justify-center mt-12"
           initial={{ opacity: 0 }}

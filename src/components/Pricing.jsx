@@ -3,9 +3,9 @@ import { useInView } from './useInView'
 
 const plans = [
   {
-    name: 'Starter',
-    price: '$249',
-    cadence: 'one-time project',
+    name:     'Starter',
+    price:    '$249',
+    cadence:  'one-time project',
     featured: false,
     features: [
       'Custom 3-page website',
@@ -17,9 +17,9 @@ const plans = [
     ],
   },
   {
-    name: 'Growth',
-    price: '$499',
-    cadence: 'most popular',
+    name:     'Growth',
+    price:    '$499',
+    cadence:  'most popular',
     featured: true,
     features: [
       'Custom 5-page website',
@@ -32,9 +32,9 @@ const plans = [
     ],
   },
   {
-    name: 'Authority',
-    price: '$999',
-    cadence: 'best for scaling businesses',
+    name:     'Authority',
+    price:    '$999',
+    cadence:  'best for scaling businesses',
     featured: false,
     features: [
       '8+ page custom website',
@@ -47,6 +47,19 @@ const plans = [
     ],
   },
 ]
+
+const addon = {
+  name:     'Monthly Care Plan',
+  price:    '$100',
+  cadence:  'per month · cancel anytime',
+  features: [
+    'Hosting & security updates',
+    'Monthly backups',
+    'Minor content edits',
+    'Performance monitoring',
+    'Priority email support',
+  ],
+}
 
 export default function Pricing() {
   const [ref, inView] = useInView()
@@ -83,7 +96,8 @@ export default function Pricing() {
           Every package is a fixed quote — you'll never receive an invoice you didn't expect.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+        {/* Main 3 plans */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start mb-6">
           {plans.map(({ name, price, cadence, featured, features }, i) => (
             <motion.div
               key={name}
@@ -96,7 +110,6 @@ export default function Pricing() {
                   : 'border border-[#e8e3da] hover:-translate-y-1 hover:border-sky/40'
                 }`}
             >
-              {/* Featured badge */}
               {featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2
                                 bg-sky text-navy text-[10px] font-medium tracking-wide
@@ -136,6 +149,52 @@ export default function Pricing() {
             </motion.div>
           ))}
         </div>
+
+        {/* Monthly care plan add-on */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.45 }}
+          className="bg-navy rounded-2xl p-7 border border-sky/20"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <p className="text-xs font-medium tracking-wider uppercase text-sky">
+                  Add-on
+                </p>
+                <span className="bg-sky/20 text-sky text-[10px] font-medium px-2.5 py-0.5 rounded-full">
+                  Pair with any plan
+                </span>
+              </div>
+              <p className="font-serif text-warm text-2xl mb-1">{addon.name}</p>
+              <p className="text-mid text-sm">{addon.cadence}</p>
+            </div>
+
+            <div className="flex items-baseline gap-1">
+              <span className="font-serif text-warm text-5xl leading-none">{addon.price}</span>
+              <span className="text-mid text-sm">/mo</span>
+            </div>
+
+            <div className="flex flex-col gap-2 md:min-w-[220px]">
+              {addon.features.map(f => (
+                <div key={f} className="flex items-center gap-2 text-sm text-mid">
+                  <span className="text-sky text-xs flex-shrink-0">→</span>
+                  {f}
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="#contact"
+              className="whitespace-nowrap border border-sky/40 text-sky text-sm font-medium
+                         px-6 py-2.5 rounded-full hover:bg-sky hover:text-navy
+                         transition-all duration-200 text-center"
+            >
+              Add to my plan
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

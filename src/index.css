@@ -2,123 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Global base ── */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  body {
-    @apply bg-warm text-navy font-sans;
-  }
-
-  /* Serif headings default */
-  h1, h2, h3 {
-    @apply font-serif;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background-color: #F5F1EB; color: #0D1B2A; font-family: "DM Sans", system-ui, sans-serif; }
+  h1, h2, h3 { font-family: "DM Serif Display", Georgia, serif; }
 }
 
-/* ── Reusable component classes ── */
 @layer components {
-  /* Section eyebrow label */
-  .eyebrow {
-    @apply text-2xs font-medium tracking-widest uppercase text-steel;
-  }
-
-  /* Primary CTA button */
+  .eyebrow { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #2E5F8A; }
   .btn-primary {
-    @apply inline-block bg-sky text-navy font-medium text-sm px-7 py-3 rounded-full
-           transition-all duration-200 hover:bg-[#5fb3e8] hover:-translate-y-0.5
-           active:translate-y-0;
+    display: inline-block; background-color: #4A9FD4; color: #0D1B2A;
+    font-weight: 500; font-size: 0.875rem; padding: 0.75rem 1.75rem;
+    border-radius: 9999px; transition: all 0.2s;
   }
-
-  /* Ghost/outline button on dark backgrounds */
+  .btn-primary:hover { background-color: #5fb3e8; transform: translateY(-2px); }
   .btn-ghost {
-    @apply inline-flex items-center gap-1.5 text-mid text-sm
-           transition-colors duration-200 hover:text-warm no-underline;
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    font-size: 0.875rem; color: #6B8CA8; text-decoration: none; transition: color 0.2s;
   }
-
-  /* Section container */
-  .section-wrap {
-    @apply max-w-6xl mx-auto px-[5%];
-  }
+  .btn-ghost:hover { color: #F5F1EB; }
 }
 
-/* ── Utility: hero gradient orb ── */
 .hero-orb {
-  position: absolute;
-  top: -120px;
-  right: -80px;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
+  position: absolute; top: -120px; right: -80px;
+  width: 520px; height: 520px; border-radius: 50%;
   background: radial-gradient(circle, rgba(74,159,212,0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
-/* ── PORTFOLIO IMAGE + LINK UPGRADES ── */
-
-/* Real screenshot image inside each thumb */
-.portfolio-thumb img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  transition: transform .5s ease;
-}
-.portfolio-card:hover .portfolio-thumb img,
-.portfolio-card-link:hover .portfolio-thumb img {
-  transform: scale(1.05);
-}
-
-/* Overlay so badge and browser mock stay readable */
-.portfolio-thumb-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.38);
-  transition: background .3s;
-}
-.portfolio-card-link:hover .portfolio-thumb-overlay {
-  background: rgba(0,0,0,.22);
-}
-
-/* Clickable card wrapper */
 .portfolio-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #e8e3da;
-  background: white;
-  transition: transform .25s, box-shadow .25s, border-color .25s;
+  display: flex; flex-direction: column; text-decoration: none;
+  color: inherit; border-radius: 16px; overflow: hidden;
+  border: 1px solid #e8e3da; background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.portfolio-card-link:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
-  border-color: var(--sky);
-}
+.portfolio-card-link:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); border-color: rgba(74,159,212,0.4); }
+.portfolio-card-link:hover .portfolio-thumb-img { transform: scale(1.05); }
+.portfolio-card-link:hover .portfolio-thumb-overlay { background: rgba(0,0,0,0.22); }
+.portfolio-card-link:hover .portfolio-view-btn { gap: 0.65rem; color: #2E5F8A; }
+.portfolio-card-link:hover .portfolio-view-btn svg { transform: translateX(3px); }
 
-/* View project arrow button */
-.portfolio-view-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  margin-top: .9rem;
-  font-size: .78rem;
-  font-weight: 500;
-  color: var(--sky);
-  transition: gap .2s;
+.portfolio-thumb-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  transition: transform 0.5s ease;
 }
-.portfolio-card-link:hover .portfolio-view-btn {
-  gap: .65rem;
-}
-.portfolio-view-btn svg {
-  transition: transform .2s;
-}
-.portfolio-card-link:hover .portfolio-view-btn svg {
-  transform: translateX(3px);
-}
+.portfolio-thumb-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.38); transition: background 0.3s ease; }
+.portfolio-view-btn { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.9rem; font-size: 0.78rem; font-weight: 500; color: #4A9FD4; transition: gap 0.2s ease, color 0.2s ease; }
+.portfolio-view-btn svg { transition: transform 0.2s ease; }
