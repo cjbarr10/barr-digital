@@ -33,10 +33,10 @@ export default function Navbar() {
         <a
           href="#"
           className="hover:opacity-85 transition-opacity flex-shrink-0"
-          aria-label="Barr Digital — home"
+          aria-label="HC Digital — home"
         >
           <svg
-            viewBox="0 0 260 68"
+            viewBox="0 0 230 68"
             xmlns="http://www.w3.org/2000/svg"
             className="h-12 w-auto"
             aria-hidden="true"
@@ -52,7 +52,7 @@ export default function Navbar() {
                   fontSize="24"
                   fontWeight="400"
                   fill="#F5F1EB"
-                  letterSpacing="-0.3">Barr Digital</text>
+                  letterSpacing="-0.3">HC Digital</text>
             {/* Sub-label */}
             <text x="71" y="48"
                   fontFamily="'DM Sans', system-ui, sans-serif"

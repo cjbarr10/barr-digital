@@ -40,7 +40,7 @@ export default function Footer() {
               href="#"
               className="font-serif text-xl text-warm no-underline block mb-2"
             >
-              Barr Digital
+              HC Digital
             </a>
             <p className="text-[#4a6070] text-sm leading-relaxed">
               Fast, modern React websites for local businesses across Tennessee and beyond.
@@ -74,7 +74,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-3
                         border-t border-white/5 pt-5">
           <p className="text-[#3d5060] text-xs">
-            © {new Date().getFullYear()} Barr Digital. All rights reserved.
+            © {new Date().getFullYear()} HC Digital. All rights reserved.
           </p>
           <p className="font-serif italic text-[#4a6070] text-sm">
             Built to be found.

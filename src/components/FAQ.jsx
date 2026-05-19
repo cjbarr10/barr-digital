@@ -7,18 +7,12 @@ const faqs = [
     q: 'Do I need to provide content and photos?',
     a: 'We can work with whatever you have. If you have photos and copy, great — we\'ll use them. If not, we can write basic copy and source stock photography. For best results, real photos of your business always outperform stock.',
   },
-  {
-    q: 'Will I be able to update the site myself?',
-    a: 'Yes — Growth and Authority packages include a CMS (content management system) so you can update text, images, hours, and more without touching any code. We provide a short walkthrough video so you\'re comfortable from day one.',
-  },
+
   {
     q: 'What happens after the site launches?',
     a: 'You own the site outright. We offer optional monthly care plans starting at $99/month that cover hosting, security updates, backups, and minor content edits. There\'s no lock-in — cancel anytime.',
   },
-  {
-    q: 'How is Barr Digital different from a $500 freelancer or Squarespace?',
-    a: 'Squarespace and cheap freelancers give you a site that looks fine but loads slowly, ranks poorly, and can\'t scale. We build in React — the same technology used by Facebook and Airbnb — optimized for speed and SEO from the ground up. The difference shows up in your Google rankings and your customer calls.',
-  },
+  
   {
     q: 'Do you offer payment plans?',
     a: 'Yes. We typically split projects into 50% upfront and 50% on launch. For larger projects we can discuss a three-payment structure. We want this to be accessible for local businesses.',

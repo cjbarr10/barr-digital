@@ -14,7 +14,7 @@ const item = {
 }
 
 const trustStats = [
-  { num: '2–3 wks',  label: 'Avg. delivery time' },
+  { num: '1 wk',  label: 'Avg. delivery time' },
   { num: '90+',      label: 'Lighthouse score guaranteed' },
   { num: '$0',       label: 'Surprise fees. Ever.' },
 ]
@@ -66,7 +66,7 @@ export default function Hero() {
             className="text-mid text-lg leading-relaxed max-w-md mb-10"
           >
             We build fast, modern websites for contractors, restaurants, and service
-            businesses — designed to rank on Google and turn visitors into customers.
+            businesses, designed to rank on Google and turn visitors into customers.
           </motion.p>
 
           {/* CTAs */}

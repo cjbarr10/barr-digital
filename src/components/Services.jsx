@@ -29,28 +29,28 @@ const services = [
     num: '01',
     title: 'Launch site',
     desc: 'A fast, professional 3-page website to establish your online presence and start showing up in local searches.',
-    price: 'From $249',
+    price: 'Priced $399',
     time:  'Delivered in 2 weeks',
   },
   {
     num: '02',
     title: 'Growth site',
-    desc: 'Full business site with CMS, analytics, Google Business integration, and 90+ Lighthouse performance score.',
-    price: 'From $499',
+    desc: 'Analytics, Google Business integration, custom animation, and 90+ Lighthouse performance score.',
+    price: 'Priced $499',
     time:  'Delivered in 3 weeks',
   },
   {
     num: '03',
     title: 'Authority site',
-    desc: 'Premium site with blog, lead capture, local SEO strategy, custom animations, and 3 months priority support.',
-    price: 'From $999',
+    desc: 'Premium site with blog, lead capture, local SEO strategy, and 3 months priority support.',
+    price: 'Priced $999',
     time:  'Delivered in 4 weeks',
   },
   {
     num: '04',
     title: 'Monthly care plan',
     desc: 'Hosting, security, backups, content updates, and a monthly performance report. Add to any project.',
-    price: 'From $99/mo',
+    price: 'Priced $99/mo',
     time:  'Cancel anytime',
   },
 ]
@@ -95,7 +95,7 @@ export default function Services() {
             initial="hidden"
             animate={probInView ? 'show' : 'hidden'}
           >
-            Your site might look fine to you — but if it's slow, broken on mobile, or
+            Your site might look fine to you, but if it's slow, broken on mobile, or
             invisible on Google, it's costing you.
           </motion.p>
 

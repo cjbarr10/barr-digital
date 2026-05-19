@@ -4,31 +4,31 @@ import { useInView } from './useInView'
 const steps = [
   {
     num: '1',
-    week: 'Day 1–2',
+    week: 'Day 1-2',
     title: 'Discovery call',
     desc: 'We learn your business, goals, and what success looks like. Free, no obligation.',
   },
   {
     num: '2',
-    week: 'Day 3–5',
+    week: 'Day 3',
     title: 'Proposal & contract',
     desc: 'You receive a fixed-price proposal with full scope. No open-ended billing.',
   },
   {
     num: '3',
-    week: 'Week 1–2',
+    week: 'Day 4-5',
     title: 'Design & build',
     desc: 'We design and develop your site, sharing progress at each milestone.',
   },
   {
     num: '4',
-    week: 'Week 2–3',
+    week: 'Day 6',
     title: 'Review & refine',
     desc: 'You review, request changes, and we polish until it\'s exactly right.',
   },
   {
     num: '5',
-    week: 'Week 3–4',
+    week: 'Day 7',
     title: 'Launch',
     desc: 'We go live, submit to Google, and you start showing up in searches.',
   },
@@ -57,7 +57,7 @@ export default function Process() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.08 }}
         >
-          From first call to live site in under a month.
+          From first call to live site in a week.
         </motion.h2>
 
         <motion.p
@@ -66,7 +66,7 @@ export default function Process() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.14 }}
         >
-          A clear, structured process with no surprises — so you always know what's happening.
+          A clear, structured process with no surprises, so you always know what's happening.
         </motion.p>
 
         {/* Steps grid */}

@@ -3,21 +3,21 @@ import { useInView } from './useInView'
 
 const plans = [
   {
-    name: 'Starter', price: '$249', cadence: 'one-time project', featured: false,
+    name: 'Starter', price: '$399', cadence: 'one-time project', featured: false,
     features: ['Custom 3-page website','Mobile-optimized design','Contact form + Google Maps','Basic local SEO setup','Fast-loading performance','Launch support included'],
   },
   {
     name: 'Growth', price: '$499', cadence: 'most popular', featured: true,
-    features: ['Custom 5-page website','Advanced animations + branding','CMS content editing','Google Business integration','Analytics dashboard','Lead capture optimization','Priority support included'],
+    features: ['Custom 5-page website','Advanced animations + branding','Google Business integration','Analytics dashboard','Lead capture optimization','Priority support included'],
   },
   {
     name: 'Authority', price: '$999', cadence: 'best for scaling businesses', featured: false,
-    features: ['8+ page custom website','Blog + SEO structure','Full CMS integration','Custom lead funnels','Advanced performance optimization','Premium animations & interactions','Ongoing support + strategy'],
+    features: ['8+ page custom website','Blog + SEO structure','Custom lead funnels','Advanced performance optimization','Premium animations & interactions','Ongoing support + strategy'],
   },
 ]
 
 const addon = {
-  name: 'Monthly Care Plan', price: '$100', cadence: 'per month · cancel anytime',
+  name: 'Monthly Care Plan', price: '$99', cadence: 'per month · cancel anytime',
   features: ['Hosting & security updates','Monthly backups','Minor content edits','Performance monitoring','Priority email support'],
 }
 
@@ -33,7 +33,7 @@ export default function Pricing() {
           Fixed prices. No surprises.
         </motion.h2>
         <motion.p className="text-[#4a6070] max-w-lg leading-relaxed mb-12" initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.14 }}>
-          Every package is a fixed quote — you'll never receive an invoice you didn't expect.
+          Every package is a fixed quote, you'll never receive an invoice you didn't expect.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start mb-6">

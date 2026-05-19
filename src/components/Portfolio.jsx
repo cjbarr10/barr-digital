@@ -107,7 +107,7 @@ function TierLegend() {
         <div key={tier} className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
           <span className="text-xs font-semibold text-navy">{tier}</span>
-          <span className="text-[11px] text-[#5a6b78]">— {desc}</span>
+          <span className="text-[11px] text-[#5a6b78]">- {desc}</span>
         </div>
       ))}
     </div>
@@ -254,7 +254,7 @@ export default function Portfolio() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.14 }}
         >
-          Every site designed and developed by Barr Digital — no templates,
+          Every site designed and developed by HC Digital, no templates,
           no page builders, just clean React code built to perform.
         </motion.p>
 
