@@ -10,7 +10,7 @@ const faqs = [
 
   {
     q: 'What happens after the site launches?',
-    a: 'You own the site outright. We offer optional monthly care plans starting at $99/month that cover hosting, security updates, backups, and minor content edits. There\'s no lock-in — cancel anytime.',
+    a: 'You own the site outright. We offer optional monthly care plans starting at $40/month that cover hosting, security updates, backups, and minor content edits. There\'s no lock-in — cancel anytime.',
   },
   
   {

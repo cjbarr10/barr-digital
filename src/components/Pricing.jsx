@@ -3,21 +3,21 @@ import { useInView } from './useInView'
 
 const plans = [
   {
-    name: 'Starter', price: '$399', cadence: 'one-time project', featured: false,
+    name: 'Starter', price: '$100', cadence: 'one-time project', featured: false,
     features: ['Custom 3-page website','Mobile-optimized design','Contact form + Google Maps','Basic local SEO setup','Fast-loading performance','Launch support included'],
   },
   {
-    name: 'Growth', price: '$499', cadence: 'most popular', featured: true,
+    name: 'Growth', price: '$250', cadence: 'most popular', featured: true,
     features: ['Custom 5-page website','Advanced animations + branding','Google Business integration','Analytics dashboard','Lead capture optimization','Priority support included'],
   },
   {
-    name: 'Authority', price: '$999', cadence: 'best for scaling businesses', featured: false,
+    name: 'Authority', price: '$500', cadence: 'best for scaling businesses', featured: false,
     features: ['8+ page custom website','Blog + SEO structure','Custom lead funnels','Advanced performance optimization','Premium animations & interactions','Ongoing support + strategy'],
   },
 ]
 
 const addon = {
-  name: 'Monthly Care Plan', price: '$99', cadence: 'per month · cancel anytime',
+  name: 'Monthly Care Plan', price: '$40', cadence: 'per month · cancel anytime',
   features: ['Hosting & security updates','Monthly backups','Minor content edits','Performance monitoring','Priority email support'],
 }
 
